@@ -1,0 +1,19 @@
+3. Convertir a instrucciones de bajo nivel.
+int x=0; 	ADD %go,0,%L0
+int y=8; 	ADD %go,8,%L1
+int z=1; 	ADD %go,1,%L2
+
+y=x+3; 		ADD %L0,3,%L3
+z=z+3; 		ADD %L2,3,%L4
+x=(x-z)+(3+y); 	SUB %L0,%L4,%L5
+		ADD %L3,3,%L6
+		ADD %L5,%L6,%O0
+
+4. Usar el ld, y st.
+a[4]=a[2]+x; 	ld [%L0+ (42)],%L1
+		Add %L1,%L2,%L2
+		st %L2, [%L0+(44)]
+
+y[0]=y[40]+13; 	ld [%L0+ (404)],%L1
+		Add %L1,13,%L2
+		st %L2,[%L0+(40)]
